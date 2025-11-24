@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أسما الله الحسنى - لعبة ترتيب الحروف</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R75LH2ZKR5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R75LH2ZKR5');
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -490,6 +501,62 @@
             color: #0277bd;
         }
 
+        /* Social Media Section */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon i {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .social-icon .platform-name {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .tiktok-icon {
+            color: #000000;
+            background: linear-gradient(45deg, #000000, #69C9D0, #EE1D52);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .instagram-icon {
+            color: transparent;
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .youtube-icon {
+            color: #FF0000;
+        }
+
         @media (max-width: 600px) {
             .container, .start-screen, .end-screen {
                 padding: 12px;
@@ -546,6 +613,14 @@
             .aliexpress-ad {
                 max-width: 250px;
             }
+
+            .social-media {
+                gap: 15px;
+            }
+
+            .social-icon i {
+                font-size: 2rem;
+            }
         }
 
         @media (max-width: 400px) {
@@ -570,6 +645,11 @@
                 width: 35px;
                 height: 35px;
             }
+
+            .social-media {
+                gap: 10px;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -593,6 +673,22 @@
 
         <button class="start-btn" id="start-btn">ابدأ اللعبة</button>
         
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@islam_v17" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok tiktok-icon"></i>
+                <span class="platform-name">TikTok</span>
+            </a>
+            <a href="https://www.instagram.com/islam_v17/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram instagram-icon"></i>
+                <span class="platform-name">Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/c/مقاطعدينية" target="_blank" class="social-icon">
+                <i class="fab fa-youtube youtube-icon"></i>
+                <span class="platform-name">YouTube</span>
+            </a>
+        </div>
+        
         <div class="footer">
             <p>تعلم أسماء الله الحسنى بطريقة ممتعة وتفاعلية</p>
         </div>
@@ -602,14 +698,14 @@
     <div class="container" id="game-container">
         <header>
             <div class="logo logo-left">
-                <img src="https://i.postimg.cc/BPT9bQhG/channels4-profile.jpg" alt="شعار اللعبة">
+                <img src="https://i.postimg.cc/nsY6zQ4h/Chat-GPT-Image-24-nov-2025-15-43-37.png" alt="شعار اللعبة">
             </div>
             <div>
                 <h1>أسما الله الحسنى</h1>
                 <p class="subtitle">رتب الحروف لتكوين اسم من أسماء الله الحسنى</p>
             </div>
             <div class="logo logo-right">
-                <img src="https://i.postimg.cc/BPT9bQhG/channels4-profile.jpg" alt="شعار اللعبة">
+                <img src="https://i.postimg.cc/nsY6zQ4h/Chat-GPT-Image-24-nov-2025-15-43-37.png" alt="شعار اللعبة">
             </div>
         </header>
         
@@ -670,6 +766,22 @@
             </div>
         </div>
         
+        <!-- Social Media Links in Game Screen -->
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@islam_v17" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok tiktok-icon"></i>
+                <span class="platform-name">TikTok</span>
+            </a>
+            <a href="https://www.instagram.com/islam_v17/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram instagram-icon"></i>
+                <span class="platform-name">Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/c/مقاطعدينية" target="_blank" class="social-icon">
+                <i class="fab fa-youtube youtube-icon"></i>
+                <span class="platform-name">YouTube</span>
+            </a>
+        </div>
+        
         <div class="footer">
             <p>لعبة أسما الله الحسنى - اجمع النقاط بترتيب الحروف بشكل صحيح</p>
         </div>
@@ -701,6 +813,22 @@
                 <div>المستوى</div>
                 <div class="stat-value" id="final-level">1</div>
             </div>
+        </div>
+
+        <!-- Social Media Links in End Screen -->
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@islam_v17" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok tiktok-icon"></i>
+                <span class="platform-name">TikTok</span>
+            </a>
+            <a href="https://www.instagram.com/islam_v17/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram instagram-icon"></i>
+                <span class="platform-name">Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/c/مقاطعدينية" target="_blank" class="social-icon">
+                <i class="fab fa-youtube youtube-icon"></i>
+                <span class="platform-name">YouTube</span>
+            </a>
         </div>
 
         <button class="start-btn" id="restart-btn">العب مرة أخرى</button>
