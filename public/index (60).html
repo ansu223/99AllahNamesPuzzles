@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسما الله الحسنى - لعبة ترتيب الحروف</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R75LH2ZKR5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R75LH2ZKR5');
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1e88e5, #29b6f6, #80deea);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            background-attachment: fixed;
+        }
+
+        /* شاشة البداية */
+        .start-screen {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            background: rgba(224, 247, 250, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            border: 3px solid #0288d1;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 20px 0;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+        }
+
+        .features-list {
+            text-align: right;
+            margin: 20px 0;
+            color: #0d1b3a;
+        }
+
+        .features-list li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(224, 247, 250, 0.95);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+            border: 3px solid #0288d1;
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #0288d1, #00bcd4, #80deea);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #81d4fa;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #0288d1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-left {
+            margin-right: auto;
+        }
+
+        .logo-right {
+            margin-left: auto;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            color: #0277bd;
+            font-weight: 700;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #0288d1;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* مساحة الإعلان المصغرة */
+        .ad-container {
+            width: 100%;
+            margin: 8px 0;
+            text-align: center;
+        }
+
+        .aliexpress-ad {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .aliexpress-ad img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* شريط التقدم */
+        .progress-container {
+            width: 100%;
+            background: #e0f7fa;
+            border-radius: 10px;
+            margin: 8px 0;
+            padding: 5px;
+            border: 2px solid #b2ebf2;
+        }
+
+        .progress-bar {
+            height: 15px;
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            border-radius: 8px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .level-info {
+            text-align: center;
+            color: #0d1b3a;
+            font-weight: bold;
+            margin: 3px 0;
+            font-size: 0.9rem;
+        }
+        
+        .game-area {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .scrambled-word-container {
+            background: linear-gradient(135deg, #0288d1, #029ae4);
+            border-radius: 15px;
+            padding: 12px 8px;
+            text-align: center;
+            margin: 6px 0;
+            box-shadow: 0 6px 15px rgba(2, 136, 209, 0.4);
+            border: 2px solid #b3e5fc;
+        }
+        
+        .letters-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 8px 0;
+        }
+        
+        .letter-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #0d1b3a;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            border: 2px solid #81d4fa;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .letter-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .letter-box.correct {
+            animation: bounce 0.5s ease;
+            background: linear-gradient(135deg, #a5d6a7, #c8e6c9);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* منطقة الإجابة */
+        .answer-container {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 8px 0;
+            border: 2px solid #81d4fa;
+            min-height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .answer-slot {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            border: 2px dashed #29b6f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d1b3a;
+            transition: all 0.3s ease;
+        }
+
+        .answer-slot.filled {
+            background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+            border: 2px solid #0288d1;
+        }
+        
+        .input-area {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        
+        .buttons-container {
+            display: flex;
+            gap: 6px;
+            margin: 4px 0;
+        }
+        
+        button {
+            flex: 1;
+            padding: 14px 6px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            font-family: 'Amiri', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #4caf50, #66bb6a);
+            color: white;
+            box-shadow: 0 2px 6px rgba(76, 175, 80, 0.3);
+            border: 2px solid #a5d6a7;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.5);
+        }
+        
+        .hint-btn {
+            background: linear-gradient(135deg, #ff9800, #ffb74d);
+            color: white;
+            box-shadow: 0 2px 6px rgba(255, 152, 0, 0.3);
+            border: 2px solid #ffcc80;
+        }
+        
+        .hint-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.5);
+        }
+        
+        .next-btn {
+            background: linear-gradient(135deg, #9c27b0, #ba68c8);
+            color: white;
+            box-shadow: 0 2px 6px rgba(156, 39, 176, 0.3);
+            border: 2px solid #ce93d8;
+            display: none; /* مخفي في البداية */
+        }
+        
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(156, 39, 176, 0.5);
+        }
+
+        .clear-btn {
+            background: linear-gradient(135deg, #f44336, #ef5350);
+            color: white;
+            box-shadow: 0 2px 6px rgba(244, 67, 54, 0.3);
+            border: 2px solid #ef9a9a;
+        }
+        
+        .clear-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(244, 67, 54, 0.5);
+        }
+
+        .timer-container {
+            text-align: center;
+            margin: 8px 0;
+            color: #0d1b3a;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .result {
+            text-align: center;
+            font-size: 1.4rem;
+            margin: 8px 0;
+            min-height: 45px;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-family: 'Amiri', serif;
+            background: #e0f7fa;
+            color: #0d1b3a;
+            border: 2px solid #b2ebf2;
+        }
+        
+        .correct {
+            color: #1b5e20;
+            background: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4caf50;
+            animation: celebrate 0.5s ease;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .incorrect {
+            color: #b71c1c;
+            background: rgba(244, 67, 54, 0.2);
+            border: 2px solid #f44336;
+        }
+        
+        .score-board {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            padding: 10px;
+            background: linear-gradient(135deg, #0288d1, #03a9f4);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(2, 136, 209, 0.4);
+            color: white;
+            border: 2px solid #b3e5fc;
+        }
+        
+        .score-item {
+            text-align: center;
+            flex: 1;
+            padding: 2px;
+        }
+        
+        .score-label {
+            font-size: 1rem;
+            margin-bottom: 2px;
+            opacity: 0.9;
+            font-family: 'Amiri', serif;
+            font-weight: 700;
+        }
+        
+        .score-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e1f5fe;
+            font-family: 'Amiri', serif;
+        }
+        
+        .footer {
+            margin-top: 10px;
+            text-align: center;
+            color: #e1f5fe;
+            font-size: 0.9rem;
+            font-family: 'Amiri', serif;
+        }
+
+        /* شاشة النهاية */
+        .end-screen {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            background: rgba(224, 247, 250, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            border: 3px solid #0288d1;
+            display: none;
+        }
+
+        .achievement {
+            background: linear-gradient(135deg, #ffd700, #ffecb3);
+            color: #8d6e00;
+            padding: 12px;
+            border-radius: 12px;
+            margin: 12px 0;
+            font-weight: bold;
+            border: 2px solid #ffc400;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .stat-item {
+            background: #e0f7fa;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #b2ebf2;
+            color: #0d1b3a;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #0277bd;
+        }
+
+        /* Social Media Section */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon i {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .social-icon .platform-name {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .tiktok-icon {
+            color: #000000;
+            background: linear-gradient(45deg, #000000, #69C9D0, #EE1D52);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .instagram-icon {
+            color: transparent;
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .youtube-icon {
+            color: #FF0000;
+        }
+
+        @media (max-width: 600px) {
+            .container, .start-screen, .end-screen {
+                padding: 12px;
+                max-width: 95%;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .letter-box {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+
+            .answer-slot {
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+            }
+            
+            button {
+                padding: 12px 6px;
+                font-size: 1.2rem;
+            }
+            
+            .score-board {
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            .result {
+                font-size: 1.2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .aliexpress-ad {
+                max-width: 250px;
+            }
+
+            .social-media {
+                gap: 15px;
+            }
+
+            .social-icon i {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .letter-box {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+            }
+
+            .answer-slot {
+                width: 35px;
+                height: 35px;
+                font-size: 1.4rem;
+            }
+            
+            button {
+                font-size: 1.1rem;
+                padding: 10px 4px;
+            }
+
+            .logo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .social-media {
+                gap: 10px;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شاشة البداية -->
+    <div class="start-screen" id="start-screen">
+        <h1>أسما الله الحسنى</h1>
+        <p class="subtitle">لعبة ترتيب الحروف التعليمية</p>
+        
+        <div class="features-list">
+            <h3>مميزات اللعبة:</h3>
+            <ul>
+                <li>🎮 99 اسم من أسماء الله الحسنى</li>
+                <li>⭐ نظام نقاط وتحديات</li>
+                <li>🏆 إنجازات وشهادات</li>
+                <li>⏱️ مؤقت تحفيزي</li>
+                <li>💡 تلميحات ذكية</li>
+                <li>📊 إحصائيات مفصلة</li>
+            </ul>
+        </div>
+
+        <button class="start-btn" id="start-btn">ابدأ اللعبة</button>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@islam_v17" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok tiktok-icon"></i>
+                <span class="platform-name">TikTok</span>
+            </a>
+            <a href="https://www.instagram.com/islam_v17/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram instagram-icon"></i>
+                <span class="platform-name">Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/c/مقاطعدينية" target="_blank" class="social-icon">
+                <i class="fab fa-youtube youtube-icon"></i>
+                <span class="platform-name">YouTube</span>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>تعلم أسماء الله الحسنى بطريقة ممتعة وتفاعلية</p>
+        </div>
+    </div>
+
+    <!-- شاشة اللعبة الرئيسية -->
+    <div class="container" id="game-container">
+        <header>
+            <div class="logo logo-left">
+                <img src="https://i.postimg.cc/nsY6zQ4h/Chat-GPT-Image-24-nov-2025-15-43-37.png" alt="شعار اللعبة">
+            </div>
+            <div>
+                <h1>أسما الله الحسنى</h1>
+                <p class="subtitle">رتب الحروف لتكوين اسم من أسماء الله الحسنى</p>
+            </div>
+            <div class="logo logo-right">
+                <img src="https://i.postimg.cc/nsY6zQ4h/Chat-GPT-Image-24-nov-2025-15-43-37.png" alt="شعار اللعبة">
+            </div>
+        </header>
+        
+        <!-- إعلان AliExpress المصغر -->
+        <div class="ad-container">
+            <div class="aliexpress-ad">
+                <a href='https://s.click.aliexpress.com/e/_c3F8I5eN?bz=725*90' target='_parent'>
+                    <img width='300' height='60' src='https://ae-pic-a1.aliexpress-media.com/kf/Sb2bb11808b6542d3a4b5a80c904f1e2cS.jpg' alt='إعلان AliExpress' />
+                </a>
+            </div>
+        </div>
+
+        <!-- شريط التقدم -->
+        <div class="progress-container">
+            <div class="level-info">المستوى: <span id="current-level">1</span></div>
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <!-- المؤقت -->
+        <div class="timer-container">
+            ⏱️ الوقت: <span id="timer">60</span> ثانية
+        </div>
+        
+        <div class="game-area">
+            <div class="scrambled-word-container">
+                <div class="letters-container" id="letters-container">
+                    <!-- Letters will be generated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- منطقة الإجابة -->
+            <div class="answer-container" id="answer-container">
+                <!-- سيتم إنشاء أماكن الإجابة هنا -->
+            </div>
+            
+            <div class="buttons-container">
+                <button class="submit-btn" id="submit-btn">✅ تحقق</button>
+                <button class="hint-btn" id="hint-btn">💡 تلميح</button>
+                <button class="clear-btn" id="clear-btn">🗑️ مسح</button>
+                <button class="next-btn" id="next-btn">➡️ تالي</button>
+            </div>
+            
+            <div class="result" id="result"></div>
+            
+            <div class="score-board">
+                <div class="score-item">
+                    <div class="score-label">النقاط</div>
+                    <div class="score-value" id="score">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">الصحيحة</div>
+                    <div class="score-value" id="correct">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">المتبقية</div>
+                    <div class="score-value" id="remaining">99</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Media Links in Game Screen -->
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@islam_v17" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok tiktok-icon"></i>
+                <span class="platform-name">TikTok</span>
+            </a>
+            <a href="https://www.instagram.com/islam_v17/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram instagram-icon"></i>
+                <span class="platform-name">Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/c/مقاطعدينية" target="_blank" class="social-icon">
+                <i class="fab fa-youtube youtube-icon"></i>
+                <span class="platform-name">YouTube</span>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>لعبة أسما الله الحسنى - اجمع النقاط بترتيب الحروف بشكل صحيح</p>
+        </div>
+    </div>
+
+    <!-- شاشة النهاية -->
+    <div class="end-screen" id="end-screen">
+        <h1>🎉 مبروك! 🎉</h1>
+        <p class="subtitle">لقد أكملت جميع الأسماء بنجاح</p>
+        
+        <div class="achievement">
+            🏆 إنجاز: أتقنت جميع أسماء الله الحسنى!
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div>النقاط النهائية</div>
+                <div class="stat-value" id="final-score">0</div>
+            </div>
+            <div class="stat-item">
+                <div>الأسماء الصحيحة</div>
+                <div class="stat-value" id="final-correct">0</div>
+            </div>
+            <div class="stat-item">
+                <div>الوقت المستغرق</div>
+                <div class="stat-value" id="final-time">0</div>
+            </div>
+            <div class="stat-item">
+                <div>المستوى</div>
+                <div class="stat-value" id="final-level">1</div>
+            </div>
+        </div>
+
+        <!-- Social Media Links in End Screen -->
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@islam_v17" target="_blank" class="social-icon">
+                <i class="fab fa-tiktok tiktok-icon"></i>
+                <span class="platform-name">TikTok</span>
+            </a>
+            <a href="https://www.instagram.com/islam_v17/" target="_blank" class="social-icon">
+                <i class="fab fa-instagram instagram-icon"></i>
+                <span class="platform-name">Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/c/مقاطعدينية" target="_blank" class="social-icon">
+                <i class="fab fa-youtube youtube-icon"></i>
+                <span class="platform-name">YouTube</span>
+            </a>
+        </div>
+
+        <button class="start-btn" id="restart-btn">العب مرة أخرى</button>
+    </div>
+
+    <script>
+        // جميع أسماء الله الحسنى الـ 99
+        const godNames = [
+            "الرحمن", "الرحيم", "الملك", "القدوس", "السلام", 
+            "المؤمن", "المهيمن", "العزيز", "الجبار", "المتكبر",
+            "الخالق", "البارئ", "المصور", "الغفار", "القهار",
+            "الوهاب", "الرزاق", "الفتاح", "العليم", "القابض",
+            "الباسط", "الخافض", "الرافع", "المعز", "المذل",
+            "السميع", "البصير", "الحكم", "العدل", "اللطيف",
+            "الخبير", "الحليم", "العظيم", "الغفور", "الشكور",
+            "العلي", "الكبير", "الحفيظ", "المقيت", "الحسيب",
+            "الجليل", "الكريم", "الرقيب", "المجيب", "الواسع",
+            "الحكيم", "الودود", "المجيد", "الباعث", "الشهيد",
+            "الحق", "الوكيل", "القوي", "المتين", "الولي",
+            "الحميد", "المحصي", "المبدئ", "المعيد", "المحيي",
+            "المميت", "الحي", "القيوم", "الواجد", "الماجد",
+            "الواحد", "الأحد", "الصمد", "القادر", "المقتدر",
+            "المقدم", "المؤخر", "الأول", "الآخر", "الظاهر",
+            "الباطن", "الوالي", "المتعالي", "البر", "التواب",
+            "المنتقم", "العفو", "الرؤوف", "مالك الملك", "ذو الجلال والإكرام",
+            "المقسط", "الجامع", "الغني", "المغني", "المانع",
+            "الضار", "النافع", "النور", "الهادي", "البديع",
+            "الباقي", "الوارث", "الرشيد", "الصبور"
+        ];
+        
+        // Game state
+        let currentName = "";
+        let scrambledName = "";
+        let score = 0;
+        let correctAnswers = 0;
+        let remainingNames = 99;
+        let usedNames = [];
+        let currentLevel = 1;
+        let timer = 60;
+        let timerInterval;
+        let startTime;
+        let selectedLetters = [];
+        let answerSlots = [];
+
+        // DOM elements
+        const startScreen = document.getElementById('start-screen');
+        const gameContainer = document.getElementById('game-container');
+        const endScreen = document.getElementById('end-screen');
+        const lettersContainer = document.getElementById('letters-container');
+        const answerContainer = document.getElementById('answer-container');
+        const submitButton = document.getElementById('submit-btn');
+        const hintButton = document.getElementById('hint-btn');
+        const clearButton = document.getElementById('clear-btn');
+        const nextButton = document.getElementById('next-btn');
+        const resultElement = document.getElementById('result');
+        const scoreElement = document.getElementById('score');
+        const correctElement = document.getElementById('correct');
+        const remainingElement = document.getElementById('remaining');
+        const progressBar = document.getElementById('progress-bar');
+        const currentLevelElement = document.getElementById('current-level');
+        const timerElement = document.getElementById('timer');
+        const finalScoreElement = document.getElementById('final-score');
+        const finalCorrectElement = document.getElementById('final-correct');
+        const finalTimeElement = document.getElementById('final-time');
+        const finalLevelElement = document.getElementById('final-level');
+
+        // Event Listeners للشاشات
+        document.getElementById('start-btn').addEventListener('click', startGame);
+        document.getElementById('restart-btn').addEventListener('click', restartGame);
+
+        function startGame() {
+            startScreen.style.display = 'none';
+            gameContainer.style.display = 'block';
+            startTime = new Date();
+            startTimer();
+            initGame();
+        }
+
+        function endGame() {
+            gameContainer.style.display = 'none';
+            endScreen.style.display = 'block';
+            clearInterval(timerInterval);
+            
+            const endTime = new Date();
+            const timeTaken = Math.floor((endTime - startTime) / 1000);
+            
+            finalScoreElement.textContent = score;
+            finalCorrectElement.textContent = correctAnswers;
+            finalTimeElement.textContent = timeTaken + ' ثانية';
+            finalLevelElement.textContent = currentLevel;
+        }
+
+        function restartGame() {
+            endScreen.style.display = 'none';
+            startScreen.style.display = 'block';
+        }
+
+        function startTimer() {
+            timer = 60;
+            timerElement.textContent = timer;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timer--;
+                timerElement.textContent = timer;
+                if (timer <= 0) {
+                    clearInterval(timerInterval);
+                    resultElement.innerHTML = "⏰ انتهى الوقت! جرب مرة أخرى";
+                    resultElement.className = "result incorrect";
+                }
+            }, 1000);
+        }
+
+        function updateProgress() {
+            const progress = ((99 - remainingNames) / 99) * 100;
+            progressBar.style.width = progress + '%';
+            
+            // تحديث المستوى بناءً على التقدم
+            currentLevel = Math.floor(progress / 20) + 1;
+            currentLevelElement.textContent = currentLevel;
+        }
+
+        // Initialize the game
+        function initGame() {
+            // Reset game state
+            score = 0;
+            correctAnswers = 0;
+            remainingNames = 99;
+            usedNames = [];
+            currentLevel = 1;
+            selectedLetters = [];
+            answerSlots = [];
+            
+            // Update UI
+            updateScore();
+            updateProgress();
+            
+            // Start with a new word
+            getNewWord();
+            
+            // Clear result
+            resultElement.textContent = "";
+            resultElement.className = "result";
+            
+            // إخفاء زر التالي في البداية
+            nextButton.style.display = 'none';
+        }
+        
+        // Get a new word that hasn't been used
+        function getNewWord() {
+            if (usedNames.length >= godNames.length) {
+                endGame();
+                return;
+            }
+            
+            // Filter out used names
+            const availableNames = godNames.filter(name => !usedNames.includes(name));
+            
+            // Select a random name
+            const randomIndex = Math.floor(Math.random() * availableNames.length);
+            currentName = availableNames[randomIndex];
+            usedNames.push(currentName);
+            
+            // Scramble the name and display in boxes
+            scrambledName = scrambleWord(currentName);
+            displayLettersInBoxes(scrambledName);
+            createAnswerSlots(currentName.length);
+            
+            // Clear selected letters
+            selectedLetters = [];
+            
+            // Update remaining count
+            remainingNames = godNames.length - usedNames.length;
+            updateScore();
+            updateProgress();
+            
+            // إخفاء زر التالي عند الحصول على كلمة جديدة
+            nextButton.style.display = 'none';
+        }
+        
+        // Display letters in individual boxes
+        function displayLettersInBoxes(word) {
+            lettersContainer.innerHTML = '';
+            const letters = word.split('');
+            
+            letters.forEach((letter, index) => {
+                const letterBox = document.createElement('div');
+                letterBox.className = 'letter-box';
+                letterBox.textContent = letter;
+                letterBox.dataset.index = index;
+                letterBox.addEventListener('click', () => selectLetter(letter, index));
+                lettersContainer.appendChild(letterBox);
+            });
+        }
+
+        // Create answer slots
+        function createAnswerSlots(length) {
+            answerContainer.innerHTML = '';
+            answerSlots = [];
+            
+            for (let i = 0; i < length; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'answer-slot';
+                slot.dataset.index = i;
+                slot.addEventListener('click', () => removeLetter(i));
+                answerContainer.appendChild(slot);
+                answerSlots.push('');
+            }
+        }
+
+        // Select a letter
+        function selectLetter(letter, index) {
+            // Find first empty slot
+            const emptySlotIndex = answerSlots.findIndex(slot => slot === '');
+            
+            if (emptySlotIndex !== -1) {
+                // Add letter to answer
+                answerSlots[emptySlotIndex] = letter;
+                selectedLetters.push({letter, originalIndex: index});
+                
+                // Update UI
+                updateAnswerDisplay();
+                
+                // Disable the selected letter
+                const letterBox = document.querySelector(`.letter-box[data-index="${index}"]`);
+                letterBox.style.opacity = '0.5';
+                letterBox.style.cursor = 'default';
+            }
+        }
+
+        // Remove a letter from answer
+        function removeLetter(slotIndex) {
+            if (answerSlots[slotIndex] !== '') {
+                const removedLetter = selectedLetters.find(letter => 
+                    letter.originalIndex === parseInt(document.querySelector(`.answer-slot[data-index="${slotIndex}"]`).dataset.originalIndex)
+                );
+                
+                if (removedLetter) {
+                    // Enable the letter box
+                    const letterBox = document.querySelector(`.letter-box[data-index="${removedLetter.originalIndex}"]`);
+                    letterBox.style.opacity = '1';
+                    letterBox.style.cursor = 'pointer';
+                    
+                    // Remove from selected letters
+                    selectedLetters = selectedLetters.filter(letter => 
+                        letter.originalIndex !== removedLetter.originalIndex
+                    );
+                }
+                
+                // Clear the slot
+                answerSlots[slotIndex] = '';
+                updateAnswerDisplay();
+            }
+        }
+
+        // Update answer display
+        function updateAnswerDisplay() {
+            const slots = document.querySelectorAll('.answer-slot');
+            slots.forEach((slot, index) => {
+                if (answerSlots[index] !== '') {
+                    slot.textContent = answerSlots[index];
+                    slot.classList.add('filled');
+                    if (selectedLetters[index]) {
+                        slot.dataset.originalIndex = selectedLetters[index].originalIndex;
+                    }
+                } else {
+                    slot.textContent = '';
+                    slot.classList.remove('filled');
+                    delete slot.dataset.originalIndex;
+                }
+            });
+        }
+
+        // Clear all selected letters
+        function clearAnswer() {
+            // Enable all letter boxes
+            const letterBoxes = document.querySelectorAll('.letter-box');
+            letterBoxes.forEach(box => {
+                box.style.opacity = '1';
+                box.style.cursor = 'pointer';
+            });
+            
+            // Clear answer
+            selectedLetters = [];
+            answerSlots = answerSlots.map(() => '');
+            updateAnswerDisplay();
+        }
+        
+        // Scramble a word
+        function scrambleWord(word) {
+            const chars = word.split('');
+            for (let i = chars.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [chars[i], chars[j]] = [chars[j], chars[i]];
+            }
+            return chars.join('');
+        }
+        
+        // Check the user's answer
+        function checkAnswer() {
+            const userAnswer = answerSlots.join('');
+            
+            if (userAnswer === currentName) {
+                // Correct answer
+                resultElement.innerHTML = "🎉 إجابة صحيحة! أحسنت!";
+                resultElement.className = "result correct";
+                score += 10 * currentLevel; // نقاط أكثر في المستويات الأعلى
+                correctAnswers++;
+                updateScore();
+                
+                // إضافة تأثير للحروف
+                const letterBoxes = document.querySelectorAll('.letter-box');
+                letterBoxes.forEach(box => {
+                    box.classList.add('correct');
+                });
+
+                // إعادة تعيين المؤقت
+                startTimer();
+                
+                // إظهار زر التالي عند الإجابة الصحيحة
+                nextButton.style.display = 'flex';
+            } else {
+                // Incorrect answer
+                resultElement.innerHTML = "❌ إجابة خاطئة، حاول مرة أخرى!";
+                resultElement.className = "result incorrect";
+                score = Math.max(0, score - 2);
+                updateScore();
+                
+                // إخفاء زر التالي عند الإجابة الخاطئة
+                nextButton.style.display = 'none';
+            }
+        }
+        
+        // Provide a hint - يفتح الرابط الذكي
+        function provideHint() {
+            // فتح الرابط الذكي في نافذة جديدة
+            window.open('https://otieu.com/4/10228162', '_blank');
+        }
+        
+        // Update score display
+        function updateScore() {
+            scoreElement.textContent = score;
+            correctElement.textContent = correctAnswers;
+            remainingElement.textContent = remainingNames;
+        }
+        
+        // Event listeners
+        submitButton.addEventListener('click', checkAnswer);
+        
+        hintButton.addEventListener('click', provideHint);
+        
+        clearButton.addEventListener('click', clearAnswer);
+        
+        nextButton.addEventListener('click', () => {
+            if (remainingNames > 0) {
+                getNewWord();
+                startTimer();
+            } else {
+                endGame();
+            }
+        });
+    </script>
+</body>
+</html>
