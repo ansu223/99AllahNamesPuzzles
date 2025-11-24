@@ -97,13 +97,12 @@
             padding-bottom: 10px;
             border-bottom: 2px dashed #81d4fa;
             position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -117,12 +116,22 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .logo-left {
+            margin-right: auto;
+        }
+
+        .logo-right {
+            margin-left: auto;
+        }
         
         h1 {
             font-size: 2.2rem;
             margin-bottom: 5px;
             color: #0277bd;
             font-weight: 700;
+            flex: 1;
+            text-align: center;
         }
         
         .subtitle {
@@ -220,6 +229,12 @@
             border: 2px solid #81d4fa;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .letter-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         .letter-box.correct {
@@ -231,36 +246,47 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
+
+        /* منطقة الإجابة */
+        .answer-container {
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 8px 0;
+            border: 2px solid #81d4fa;
+            min-height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .answer-slot {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            border: 2px dashed #29b6f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d1b3a;
+            transition: all 0.3s ease;
+        }
+
+        .answer-slot.filled {
+            background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+            border: 2px solid #0288d1;
+        }
         
         .input-area {
             display: flex;
             flex-direction: column;
             gap: 6px;
             margin-bottom: 8px;
-        }
-        
-        input {
-            width: 100%;
-            padding: 14px;
-            font-size: 1.6rem;
-            border: 2px solid #29b6f6;
-            border-radius: 10px;
-            text-align: center;
-            background: #e0f7fa;
-            color: #0d1b3a;
-            font-family: 'Amiri', serif;
-            font-weight: 700;
-        }
-        
-        input:focus {
-            outline: none;
-            border-color: #0288d1;
-            background: #b2ebf2;
-            box-shadow: 0 0 0 3px rgba(41, 182, 246, 0.3);
-        }
-        
-        input::placeholder {
-            color: #81d4fa;
         }
         
         .buttons-container {
@@ -320,6 +346,18 @@
         .next-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(156, 39, 176, 0.5);
+        }
+
+        .clear-btn {
+            background: linear-gradient(135deg, #f44336, #ef5350);
+            color: white;
+            box-shadow: 0 2px 6px rgba(244, 67, 54, 0.3);
+            border: 2px solid #ef9a9a;
+        }
+        
+        .clear-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(244, 67, 54, 0.5);
         }
 
         .timer-container {
@@ -469,13 +507,18 @@
             .logo {
                 width: 40px;
                 height: 40px;
-                right: 10px;
             }
             
             .letter-box {
                 width: 50px;
                 height: 50px;
                 font-size: 2rem;
+            }
+
+            .answer-slot {
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
             }
             
             .buttons-container {
@@ -490,11 +533,6 @@
             .score-board {
                 flex-direction: column;
                 gap: 6px;
-            }
-            
-            input {
-                font-size: 1.4rem;
-                padding: 12px;
             }
             
             .result {
@@ -516,9 +554,11 @@
                 height: 45px;
                 font-size: 1.8rem;
             }
-            
-            input {
-                font-size: 1.3rem;
+
+            .answer-slot {
+                width: 35px;
+                height: 35px;
+                font-size: 1.4rem;
             }
             
             button {
@@ -561,11 +601,16 @@
     <!-- شاشة اللعبة الرئيسية -->
     <div class="container" id="game-container">
         <header>
-            <div class="logo">
+            <div class="logo logo-left">
                 <img src="https://i.postimg.cc/BPT9bQhG/channels4-profile.jpg" alt="شعار اللعبة">
             </div>
-            <h1>أسما الله الحسنى</h1>
-            <p class="subtitle">رتب الحروف لتكوين اسم من أسماء الله الحسنى</p>
+            <div>
+                <h1>أسما الله الحسنى</h1>
+                <p class="subtitle">رتب الحروف لتكوين اسم من أسماء الله الحسنى</p>
+            </div>
+            <div class="logo logo-right">
+                <img src="https://i.postimg.cc/BPT9bQhG/channels4-profile.jpg" alt="شعار اللعبة">
+            </div>
         </header>
         
         <!-- إعلان AliExpress المصغر -->
@@ -594,15 +639,17 @@
                     <!-- Letters will be generated here by JavaScript -->
                 </div>
             </div>
+
+            <!-- منطقة الإجابة -->
+            <div class="answer-container" id="answer-container">
+                <!-- سيتم إنشاء أماكن الإجابة هنا -->
+            </div>
             
-            <div class="input-area">
-                <input type="text" id="user-input" placeholder="اكتب الإجابة هنا" autocomplete="off">
-                
-                <div class="buttons-container">
-                    <button class="submit-btn" id="submit-btn">✅ تحقق</button>
-                    <button class="hint-btn" id="hint-btn">💡 تلميح</button>
-                    <button class="next-btn" id="next-btn">➡️ تالي</button>
-                </div>
+            <div class="buttons-container">
+                <button class="submit-btn" id="submit-btn">✅ تحقق</button>
+                <button class="hint-btn" id="hint-btn">💡 تلميح</button>
+                <button class="clear-btn" id="clear-btn">🗑️ مسح</button>
+                <button class="next-btn" id="next-btn">➡️ تالي</button>
             </div>
             
             <div class="result" id="result"></div>
@@ -695,15 +742,18 @@
         let timer = 60;
         let timerInterval;
         let startTime;
+        let selectedLetters = [];
+        let answerSlots = [];
 
         // DOM elements
         const startScreen = document.getElementById('start-screen');
         const gameContainer = document.getElementById('game-container');
         const endScreen = document.getElementById('end-screen');
         const lettersContainer = document.getElementById('letters-container');
-        const userInputElement = document.getElementById('user-input');
+        const answerContainer = document.getElementById('answer-container');
         const submitButton = document.getElementById('submit-btn');
         const hintButton = document.getElementById('hint-btn');
+        const clearButton = document.getElementById('clear-btn');
         const nextButton = document.getElementById('next-btn');
         const resultElement = document.getElementById('result');
         const scoreElement = document.getElementById('score');
@@ -780,6 +830,8 @@
             remainingNames = 99;
             usedNames = [];
             currentLevel = 1;
+            selectedLetters = [];
+            answerSlots = [];
             
             // Update UI
             updateScore();
@@ -814,11 +866,10 @@
             // Scramble the name and display in boxes
             scrambledName = scrambleWord(currentName);
             displayLettersInBoxes(scrambledName);
+            createAnswerSlots(currentName.length);
             
-            // Clear input and result
-            userInputElement.value = "";
-            resultElement.textContent = "";
-            resultElement.className = "result";
+            // Clear selected letters
+            selectedLetters = [];
             
             // Update remaining count
             remainingNames = godNames.length - usedNames.length;
@@ -834,12 +885,107 @@
             lettersContainer.innerHTML = '';
             const letters = word.split('');
             
-            letters.forEach(letter => {
+            letters.forEach((letter, index) => {
                 const letterBox = document.createElement('div');
                 letterBox.className = 'letter-box';
                 letterBox.textContent = letter;
+                letterBox.dataset.index = index;
+                letterBox.addEventListener('click', () => selectLetter(letter, index));
                 lettersContainer.appendChild(letterBox);
             });
+        }
+
+        // Create answer slots
+        function createAnswerSlots(length) {
+            answerContainer.innerHTML = '';
+            answerSlots = [];
+            
+            for (let i = 0; i < length; i++) {
+                const slot = document.createElement('div');
+                slot.className = 'answer-slot';
+                slot.dataset.index = i;
+                slot.addEventListener('click', () => removeLetter(i));
+                answerContainer.appendChild(slot);
+                answerSlots.push('');
+            }
+        }
+
+        // Select a letter
+        function selectLetter(letter, index) {
+            // Find first empty slot
+            const emptySlotIndex = answerSlots.findIndex(slot => slot === '');
+            
+            if (emptySlotIndex !== -1) {
+                // Add letter to answer
+                answerSlots[emptySlotIndex] = letter;
+                selectedLetters.push({letter, originalIndex: index});
+                
+                // Update UI
+                updateAnswerDisplay();
+                
+                // Disable the selected letter
+                const letterBox = document.querySelector(`.letter-box[data-index="${index}"]`);
+                letterBox.style.opacity = '0.5';
+                letterBox.style.cursor = 'default';
+            }
+        }
+
+        // Remove a letter from answer
+        function removeLetter(slotIndex) {
+            if (answerSlots[slotIndex] !== '') {
+                const removedLetter = selectedLetters.find(letter => 
+                    letter.originalIndex === parseInt(document.querySelector(`.answer-slot[data-index="${slotIndex}"]`).dataset.originalIndex)
+                );
+                
+                if (removedLetter) {
+                    // Enable the letter box
+                    const letterBox = document.querySelector(`.letter-box[data-index="${removedLetter.originalIndex}"]`);
+                    letterBox.style.opacity = '1';
+                    letterBox.style.cursor = 'pointer';
+                    
+                    // Remove from selected letters
+                    selectedLetters = selectedLetters.filter(letter => 
+                        letter.originalIndex !== removedLetter.originalIndex
+                    );
+                }
+                
+                // Clear the slot
+                answerSlots[slotIndex] = '';
+                updateAnswerDisplay();
+            }
+        }
+
+        // Update answer display
+        function updateAnswerDisplay() {
+            const slots = document.querySelectorAll('.answer-slot');
+            slots.forEach((slot, index) => {
+                if (answerSlots[index] !== '') {
+                    slot.textContent = answerSlots[index];
+                    slot.classList.add('filled');
+                    if (selectedLetters[index]) {
+                        slot.dataset.originalIndex = selectedLetters[index].originalIndex;
+                    }
+                } else {
+                    slot.textContent = '';
+                    slot.classList.remove('filled');
+                    delete slot.dataset.originalIndex;
+                }
+            });
+        }
+
+        // Clear all selected letters
+        function clearAnswer() {
+            // Enable all letter boxes
+            const letterBoxes = document.querySelectorAll('.letter-box');
+            letterBoxes.forEach(box => {
+                box.style.opacity = '1';
+                box.style.cursor = 'pointer';
+            });
+            
+            // Clear answer
+            selectedLetters = [];
+            answerSlots = answerSlots.map(() => '');
+            updateAnswerDisplay();
         }
         
         // Scramble a word
@@ -854,7 +1000,7 @@
         
         // Check the user's answer
         function checkAnswer() {
-            const userAnswer = userInputElement.value.trim();
+            const userAnswer = answerSlots.join('');
             
             if (userAnswer === currentName) {
                 // Correct answer
@@ -875,15 +1021,6 @@
                 
                 // إظهار زر التالي عند الإجابة الصحيحة
                 nextButton.style.display = 'flex';
-                
-                // Automatically move to next word after a delay
-                setTimeout(() => {
-                    if (remainingNames > 0) {
-                        // getNewWord(); // تم التعليق لأننا نريد المستخدم ينقر على التالي يدوياً
-                    } else {
-                        endGame();
-                    }
-                }, 1500);
             } else {
                 // Incorrect answer
                 resultElement.innerHTML = "❌ إجابة خاطئة، حاول مرة أخرى!";
@@ -914,18 +1051,14 @@
         
         hintButton.addEventListener('click', provideHint);
         
+        clearButton.addEventListener('click', clearAnswer);
+        
         nextButton.addEventListener('click', () => {
             if (remainingNames > 0) {
                 getNewWord();
                 startTimer();
             } else {
                 endGame();
-            }
-        });
-        
-        userInputElement.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                checkAnswer();
             }
         });
     </script>
