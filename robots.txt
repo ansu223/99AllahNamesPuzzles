@@ -2,5 +2,13 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search/
 
+# Sitemaps
 Sitemap: https://asmaulhusnaquiz.xyz/sitemap.xml
+Sitemap: https://asmaulhusnaquiz.xyz/sitemap-pages.xml
+
+# Crawl delay
+Crawl-delay: 2
