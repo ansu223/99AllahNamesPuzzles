@@ -838,7 +838,7 @@
         <div class="highlight-box">
             <h2>🎮 العب وتعلم أسماء الله الحسنى بطريقة ممتعة!</h2>
             <p>لعبة تفاعلية تعليمية تساعدك على حفظ وفهم أسماء الله الحسنى التسعة والتسعين عبر تحدي ترتيب الحروف.</p>
-            <a href="#start-game" class="game-start-link" onclick="scrollToGame()">ابدأ اللعبة الآن</a>
+            <a href="#start-game" class="game-start-link" onclick="startGameFromStatic()">ابدأ اللعبة الآن</a>
         </div>
         
         <h2>📖 ما هي أسماء الله الحسنى؟</h2>
@@ -880,7 +880,7 @@
         <div class="highlight-box">
             <h3>🚀 جاهز للتحدي؟</h3>
             <p>اختبر معرفتك بأسماء الله الحسنى وشارك النتائج مع أصدقائك!</p>
-            <a href="#start-game" class="game-start-link" onclick="scrollToGame()">العب الآن مجانًا</a>
+            <a href="#start-game" class="game-start-link" onclick="startGameFromStatic()">العب الآن مجانًا</a>
         </div>
     </div>
 
@@ -1078,11 +1078,6 @@
     </div>
 
     <script>
-        // Helper function for scrolling
-        function scrollToGame() {
-            document.getElementById('start-screen').scrollIntoView({ behavior: 'smooth' });
-        }
-
         // جميع أسماء الله الحسنى الـ 99
         const godNames = [
             "الرحمن", "الرحيم", "الملك", "القدوس", "السلام", 
@@ -1147,7 +1142,29 @@
         document.getElementById('start-btn').addEventListener('click', startGame);
         document.getElementById('restart-btn').addEventListener('click', restartGame);
 
+        // Function to start game from static content
+        function startGameFromStatic() {
+            // Hide static content
+            document.querySelector('.crawlable-content').style.display = 'none';
+            
+            // Hide start screen
+            startScreen.style.display = 'none';
+            
+            // Show game container
+            gameContainer.style.display = 'block';
+            
+            // Initialize game
+            startTime = new Date();
+            startTimer();
+            initGame();
+            
+            // Scroll to game
+            gameContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
         function startGame() {
+            // Hide static content
+            document.querySelector('.crawlable-content').style.display = 'none';
             startScreen.style.display = 'none';
             gameContainer.style.display = 'block';
             startTime = new Date();
@@ -1178,6 +1195,10 @@
         function restartGame() {
             endScreen.style.display = 'none';
             startScreen.style.display = 'block';
+            
+            // إظهار المحتوى الثابت مرة أخرى
+            document.querySelector('.crawlable-content').style.display = 'block';
+            
             startScreen.scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -1427,6 +1448,16 @@
             scoreElement.textContent = score;
             correctElement.textContent = correctAnswers;
             remainingElement.textContent = remainingNames;
+        }
+        
+        // Helper function for scrolling
+        function scrollToGame() {
+            if (gameContainer.style.display === 'block') {
+                gameContainer.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // If game not started, go to start screen
+                startScreen.scrollIntoView({ behavior: 'smooth' });
+            }
         }
         
         // Event listeners
