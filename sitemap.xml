@@ -4,53 +4,45 @@
     
     <!-- Home Page - Highest Priority -->
     <url>
-        <loc>https://asmaulhusnaquiz.xyz/</loc>
+        <loc>https://asmaulhusnaquiz.xyz/index.html</loc>
         <lastmod>2024-01-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/" />
-        <xhtml:link rel="alternate" hreflang="ar-SA" href="https://asmaulhusnaquiz.xyz/" />
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://asmaulhusnaquiz.xyz/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/index.html" />
+        <xhtml:link rel="alternate" hreflang="ar-SA" href="https://asmaulhusnaquiz.xyz/index.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://asmaulhusnaquiz.xyz/index.html" />
     </url>
     
-    <!-- Game Page -->
+    <!-- About Page -->
     <url>
-        <loc>https://asmaulhusnaquiz.xyz/#game</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- Static Content Page -->
-    <url>
-        <loc>https://asmaulhusnaquiz.xyz/#content</loc>
+        <loc>https://asmaulhusnaquiz.xyz/about.html</loc>
         <lastmod>2024-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
-    <!-- Features Section -->
+    <!-- Names List Page -->
     <url>
-        <loc>https://asmaulhusnaquiz.xyz/#features</loc>
+        <loc>https://asmaulhusnaquiz.xyz/names-list.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Game Page (Anchor) -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/index.html#game</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Content Page (Anchor) -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/index.html#content</loc>
         <lastmod>2024-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-    </url>
-    
-    <!-- How to Play -->
-    <url>
-        <loc>https://asmaulhusnaquiz.xyz/#how-to-play</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <!-- About Page -->
-    <url>
-        <loc>https://asmaulhusnaquiz.xyz/#about</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
     </url>
 
 </urlset>
