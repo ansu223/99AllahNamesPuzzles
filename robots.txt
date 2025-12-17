@@ -1,21 +1,28 @@
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
 Allow: /*.html
 Allow: /*.css
 Allow: /*.js
 Allow: /*.png
 Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
 Allow: /*.svg
 Allow: /*.ico
+Allow: /*.xml
 Allow: /*.json
 
 Disallow: /admin/
 Disallow: /private/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
 Disallow: /*.php$
 Disallow: /*.zip$
+Disallow: /*.tar.gz$
 
 # Sitemap location
 Sitemap: https://asmaulhusnaquiz.xyz/sitemap.xml
 
 # Crawl delay
-Crawl-delay: 1
+Crawl-delay: 2
