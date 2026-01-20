@@ -1,119 +1,80 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>أسماء الله الحسنى الـ 99 كاملة مع المعاني | Asmaul Husna</title>
-<meta name="description" content="القائمة الكاملة لأسماء الله الحسنى التسعة والتسعين مكتوبة بالعربية مع معانيها. تعلم واحفظ أسماء الله الحسنى كاملة.">
-
-<link rel="canonical" href="https://asmaulhusnaquiz.xyz/names-list.html">
-
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "أسماء الله الحسنى",
-  "itemListOrder": "https://schema.org/ItemListOrderAscending",
-  "numberOfItems": 99,
-  "inLanguage": "ar",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "لعبة أسماء الله الحسنى",
-    "url": "https://asmaulhusnaquiz.xyz/"
-  }
+  "name": "أسما الله الحسنى - لعبة تعليمية",
+  "short_name": "أسماء الله",
+  "description": "لعبة تعليمية تفاعلية لتعلم أسماء الله الحسنى التسعة والتسعين",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0277bd",
+  "background_color": "#1e88e5",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/?source=pwa",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["education", "games", "religious"],
+  "screenshots": [
+    {
+      "src": "https://asmaulhusnaquiz.xyz/screenshots/mobile-screenshot.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://asmaulhusnaquiz.xyz/screenshots/desktop-screenshot.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "ابدأ اللعبة",
+      "short_name": "العب",
+      "description": "ابدأ لعبة أسماء الله الحسنى",
+      "url": "/?source=pwa&action=start_game",
+      "icons": [{ "src": "/icons/play-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "قائمة الأسماء",
+      "short_name": "القائمة",
+      "description": "شاهد جميع أسماء الله الحسنى",
+      "url": "/names-list.html?source=pwa",
+      "icons": [{ "src": "/icons/list-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.asmaulhusna.game",
+      "id": "com.asmaulhusna.game"
+    }
+  ],
+  "prefer_related_applications": false,
+  "launch_handler": {
+    "client_mode": ["focus-existing", "auto"]
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+asma",
+      "url": "/?name=%s"
+    }
+  ]
 }
-</script>
-
-<style>
-body{
-  font-family:'Amiri',serif;
-  background:#eef5ff;
-  color:#0d1b3a;
-  margin:0;
-}
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
-}
-h1{
-  text-align:center;
-  color:#01579b;
-  margin-bottom:10px;
-}
-.intro{
-  text-align:center;
-  font-size:1.05rem;
-  margin-bottom:30px;
-}
-.names-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:15px;
-}
-.name-card{
-  background:#fff;
-  border-radius:10px;
-  padding:15px;
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  border-right:4px solid #4caf50;
-  text-align:center;
-}
-.arabic{
-  font-size:1.7rem;
-  color:#0277bd;
-}
-.meaning{
-  font-size:.9rem;
-  color:#555;
-}
-.back{
-  display:block;
-  text-align:center;
-  margin:40px 0 10px;
-  font-size:1.1rem;
-  text-decoration:none;
-  color:#01579b;
-}
-.back:hover{ text-decoration:underline; }
-</style>
-</head>
-
-<body>
-<div class="container">
-
-<h1>أسماء الله الحسنى الـ 99</h1>
-
-<p class="intro">
-أسماء الله الحسنى هي الأسماء التي سمّى الله تعالى بها نفسه، وهي تسعة وتسعون اسمًا،
-من أحصاها دخل الجنة. في هذه الصفحة تجد القائمة الكاملة لأسماء الله الحسنى مع معانيها.
-</p>
-
-<div class="names-grid">
-
-<div class="name-card"><div class="arabic">الرَّحْمَنُ</div><div class="meaning">ذو الرحمة الواسعة</div></div>
-<div class="name-card"><div class="arabic">الرَّحِيمُ</div><div class="meaning">المنعم برحمته على عباده</div></div>
-<div class="name-card"><div class="arabic">الْمَلِكُ</div><div class="meaning">المالك لكل شيء</div></div>
-<div class="name-card"><div class="arabic">الْقُدُّوسُ</div><div class="meaning">المنزه عن كل نقص</div></div>
-<div class="name-card"><div class="arabic">السَّلَامُ</div><div class="meaning">مصدر السلامة</div></div>
-<div class="name-card"><div class="arabic">الْمُؤْمِنُ</div><div class="meaning">الذي يؤمّن عباده</div></div>
-<div class="name-card"><div class="arabic">الْمُهَيْمِنُ</div><div class="meaning">الرقيب الحافظ</div></div>
-<div class="name-card"><div class="arabic">الْعَزِيزُ</div><div class="meaning">القوي الغالب</div></div>
-<div class="name-card"><div class="arabic">الْجَبَّارُ</div><div class="meaning">الذي يجبر الكسير</div></div>
-<div class="name-card"><div class="arabic">الْمُتَكَبِّرُ</div><div class="meaning">العظيم ذو الكبرياء</div></div>
-
-<!-- تم اختصار العرض هنا -->
-<!-- في ملفك النهائي ضع الأسماء 99 كاملة بنفس النمط -->
-<!-- (لو أردت أرسل لك النسخة كاملة 99/99 بدون اختصار) -->
-
-</div>
-
-<a class="back" href="https://asmaulhusnaquiz.xyz/">← العودة إلى الصفحة الرئيسية</a>
-
-</div>
-</body>
-</html>
