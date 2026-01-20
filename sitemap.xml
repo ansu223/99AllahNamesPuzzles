@@ -2,27 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
     
+    <!-- Home Page - Highest Priority -->
     <url>
         <loc>https://asmaulhusnaquiz.xyz/</loc>
         <lastmod>2024-03-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://asmaulhusnaquiz.xyz/" />
+        
+        <!-- Images -->
+        <image:image>
+            <image:loc>https://i.postimg.cc/nsY6zQ4h/Chat-GPT-Image-24-nov-2025-15-43-37.png</image:loc>
+            <image:title>شعار لعبة أسما الله الحسنى</image:title>
+            <image:caption>لعبة تعليمية تفاعلية لتعلم أسماء الله الحسنى</image:caption>
+            <image:geo_location>SA, Riyadh</image:geo_location>
+            <image:license>https://creativecommons.org/licenses/by-nc-sa/4.0/</image:license>
+        </image:image>
+        
+        <!-- Video -->
+        <video:video>
+            <video:thumbnail_loc>https://asmaulhusnaquiz.xyz/images/video-thumbnail.jpg</video:thumbnail_loc>
+            <video:title>لعبة أسما الله الحسنى - شرح طريقة اللعب</video:title>
+            <video:description>شرح مفصل لكيفية لعب لعبة أسماء الله الحسنى التعليمية</video:description>
+            <video:content_loc>https://asmaulhusnaquiz.xyz/videos/game-tutorial.mp4</video:content_loc>
+            <video:player_loc>https://asmaulhusnaquiz.xyz/video-player.html</video:player_loc>
+            <video:duration>180</video:duration>
+            <video:publication_date>2024-01-01T10:00:00+03:00</video:publication_date>
+            <video:family_friendly>yes</video:family_friendly>
+            <video:requires_subscription>no</video:requires_subscription>
+            <video:uploader info="https://asmaulhusnaquiz.xyz/about.html">أسما الله الحسنى</video:uploader>
+        </video:video>
     </url>
     
+    <!-- About Page -->
     <url>
         <loc>https://asmaulhusnaquiz.xyz/about.html</loc>
         <lastmod>2024-03-10</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/about.html" />
+        
+        <image:image>
+            <image:loc>https://i.postimg.cc/nsY6zQ4h/Chat-GPT-Image-24-nov-2025-15-43-37.png</image:loc>
+            <image:title>عن لعبة أسما الله الحسنى</image:title>
+        </image:image>
     </url>
     
+    <!-- Names List Page -->
     <url>
         <loc>https://asmaulhusnaquiz.xyz/names-list.html</loc>
         <lastmod>2024-03-10</lastmod>
         <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/names-list.html" />
+        
+        <!-- Multiple images for names list -->
+        <image:image>
+            <image:loc>https://asmaulhusnaquiz.xyz/images/names-list-1.jpg</image:loc>
+            <image:title>أسماء الله الحسنى الجزء الأول</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://asmaulhusnaquiz.xyz/images/names-list-2.jpg</image:loc>
+            <image:title>أسماء الله الحسنى الجزء الثاني</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Game Instructions Page (Optional future page) -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/how-to-play.html</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/how-to-play.html" />
+    </url>
+    
+    <!-- Privacy Policy Page (Important for SEO) -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/privacy-policy.html</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/privacy-policy.html" />
+    </url>
+    
+    <!-- Terms of Service Page -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/terms.html</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/terms.html" />
+    </url>
+    
+    <!-- Contact Page (Optional future page) -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/contact.html</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/contact.html" />
+    </url>
+    
+    <!-- Blog/Articles Page (Optional future page) -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/blog/</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/blog/" />
+    </url>
+    
+    <!-- FAQ Page (Optional future page) -->
+    <url>
+        <loc>https://asmaulhusnaquiz.xyz/faq.html</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="ar" href="https://asmaulhusnaquiz.xyz/faq.html" />
     </url>
 
 </urlset>
