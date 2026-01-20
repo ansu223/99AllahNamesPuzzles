@@ -1,28 +1,124 @@
 User-agent: *
 Allow: /
 Allow: /sitemap.xml
-Allow: /*.html
-Allow: /*.css
-Allow: /*.js
-Allow: /*.png
-Allow: /*.jpg
-Allow: /*.jpeg
-Allow: /*.gif
-Allow: /*.svg
-Allow: /*.ico
-Allow: /*.xml
-Allow: /*.json
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.ico$
+Allow: /*.xml$
+Allow: /*.json$
+Allow: /*.webmanifest$
 
 Disallow: /admin/
 Disallow: /private/
 Disallow: /wp-admin/
 Disallow: /wp-includes/
+Disallow: /cgi-bin/
+Disallow: /includes/
+Disallow: /config/
+Disallow: /backup/
+Disallow: /tmp/
+Disallow: /test/
 Disallow: /*.php$
 Disallow: /*.zip$
 Disallow: /*.tar.gz$
+Disallow: /*.bak$
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.env$
+Disallow: /*?*
+Disallow: /*&*
 
-# Sitemap location
-Sitemap: https://asmaulhusnaquiz.xyz/sitemap.xml
+# Google-specific
+User-agent: Googlebot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Disallow: /private/
+Disallow: /admin/
+Crawl-delay: 1
 
-# Crawl delay
+# Bing-specific
+User-agent: bingbot
+Allow: /
+Disallow: /private/
+Disallow: /admin/
 Crawl-delay: 2
+
+# Yandex-specific
+User-agent: YandexBot
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Clean-param: ref
+Crawl-delay: 3
+
+# Baidu-specific
+User-agent: Baiduspider
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Crawl-delay: 5
+
+# Other specific bots
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /private/
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+Disallow: /private/
+
+User-agent: FacebookExternalHit
+Allow: /
+Disallow: /private/
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
+User-agent: SentiBot
+Disallow: /
+
+User-agent: Exabot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+# Sitemap location (must be absolute URLs)
+Sitemap: https://asmaulhusnaquiz.xyz/sitemap.xml
+Sitemap: https://asmaulhusnaquiz.xyz/sitemap-news.xml
+Sitemap: https://asmaulhusnaquiz.xyz/sitemap-video.xml
+Sitemap: https://asmaulhusnaquiz.xyz/sitemap-image.xml
+
+# Host directive
+Host: asmaulhusnaquiz.xyz
+
+# Crawl delay for all other bots
+Crawl-delay: 2
+
+# Language targeting (Arabic content)
+Language: ar
+Language-priority: ar
